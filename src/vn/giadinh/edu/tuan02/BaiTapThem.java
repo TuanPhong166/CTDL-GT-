@@ -20,10 +20,10 @@ public class BaiTapThem {
         System.out.println("Số lượng : "+soLuong);
         System.out.println("Loại : "+loai);
     }
-
+     
     // Thông Tin Nhân Viên 
      // 1 thuộc tính
-     String tenNhanVien ;
+     String tenNhanVien ;  
      String luong ;
      String diaChi ;
      String boPhanLamViec ;

@@ -3,6 +3,8 @@ package vn.giadinh.edu.tuan02;
 public class BaiTapThemTestDrive {
 
     public static void main(String[] args) {
+
+        
         
         BaiTapThem sach ; // khai báo biến tên là sach tham chiếu đối tượng kiểu Sach
         sach = new BaiTapThem(); // Tạo đối tượng sach trong vùng nhớ Heap 
@@ -18,7 +20,7 @@ public class BaiTapThemTestDrive {
         System.out.println("////////////////////////////////////////////////");
         
         // thông tin nhân viên 
-
+            
         System.out.println("Thông Tin Nhân Viên ");
         BaiTapThem nhanVien ;
         nhanVien = new BaiTapThem();
