@@ -18,15 +18,14 @@ public class ExcerciseTestDrive {
         Exercise xe = new Exercise("Nguyễn Trí Tuấn Phong", "Yamaha", "Nhập Khẩu", "CA Long An", 108);
         xe.thongTinXe(); 
         //MÁY TÍNH
-        System.out.println();
+        System.out.println();   
         System.out.println(">>>>>>>>--Máy Tính--<<<<<<<<");
-        Exercise mayTinh = new Exercise("Acer", 2020, "Window 10 Home SL", "16 GBLPDDR4X (On board)4266 MHz", "i51135G72.4GHz", 22000000, 2021);
+        Exercise mayTinh = new Exercise("Acer", 2020, "Window 10 Home SL", "16 GBLPDDR4X (On board)4266 MHz", "i51135G7 2.4GHz", 22000000, 2021);
         mayTinh.thongTinMayTinh();
         //TÀI KHOẢN NGÂN HÀNG
-        //MÁY TÍNH
         System.out.println();
         System.out.println(">>>>>>>>--Tài Khoản Ngân Hàng--<<<<<<<<");
-        Exercise nganHang = new Exercise("Nguyễn Trí Tuán Phong", 2005110008, 5239192.211 ) ;
+        Exercise nganHang = new Exercise("Nguyễn Trí Tuán Phong", 2005110008, 51000 ) ;
         nganHang.thongTinNganHang();
         System.out.println();
     }
