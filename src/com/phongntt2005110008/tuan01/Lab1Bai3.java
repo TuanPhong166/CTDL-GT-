@@ -1,4 +1,4 @@
-package vn.giadinh.edu.tuan02;
+package com.phongntt2005110008.tuan01 ;
 
 import java.util.Scanner;
 import java.text.DecimalFormat;
