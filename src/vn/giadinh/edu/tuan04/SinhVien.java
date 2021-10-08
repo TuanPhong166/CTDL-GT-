@@ -2,10 +2,10 @@ package vn.giadinh.edu.tuan04;
 
 public class SinhVien {
     
-    String mssv;
-    String hoTen ;
-    int tuoi ;
-    String queQuan ;
+    public String mssv;
+    public String hoTen ;
+    public int tuoi ;
+    public String queQuan ;
 
     public SinhVien(){}
 

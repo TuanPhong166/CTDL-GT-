@@ -1,0 +1,62 @@
+package com.phongntt2005110008.tuan05;
+
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Lab5Bai2 {
+
+ArrayList<String> list = new ArrayList<>();
+    // tạo menu
+
+public void menu(){
+
+    System.out.println(">>>>>>Menu<<<<<<");
+    System.out.println("1>> Nhập danh sách.");
+    System.out.println("2>> Hiển thị danh sách.");
+    System.out.println("3>> Sắp Xếp danh sách.");
+    System.out.println("4>> Sắp xếp danh sách ngẫu nhiên.");
+    System.out.println("5>> Tìm kiếm và xóa họ và tên.");
+    System.out.println("0. Thoát chương trình");
+    
+}
+public void nhap(){
+    Scanner input = new Scanner(System.in);
+    do{
+        System.out.print("Nhập họ và tên : ");
+        String name = input.nextLine();
+        if(name.isEmpty()){// name rỗng thì sẽ thoát khỏi vòng lặp
+            break ;
+        }
+        list.add(name);
+    }while(true);
+}
+public void xuat(){
+    System.out.println("Danh sách họ và tên : ");
+    for (String string : list) {
+       System.out.println("Họ và tên : "+string);
+    }
+}
+public void xuatNgauNhien(){
+    Collections.shuffle(list);
+    xuat();
+}
+public void sapXep(){
+    Collections.sort(list);
+    Collections.reverse(list);
+    xuat();
+}
+public void timVaXoa(){
+    Scanner input = new Scanner(System.in);
+    System.out.println("Nhập họ tên cần tìm để xóa ");
+    String name = input.nextLine();
+
+    for (String string : list) {
+        if(string.equals(name)){ // tìm tên
+            list.remove(string); // xóa
+            break ;
+        }
+    }
+
+}
+}
