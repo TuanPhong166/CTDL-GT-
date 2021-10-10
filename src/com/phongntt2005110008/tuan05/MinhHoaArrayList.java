@@ -20,7 +20,8 @@ public class MinhHoaArrayList {
 
         Dog dog = (Dog)a.get(4); //(Dog) ép kiểu . lấy phần tử thứ 5 của a
     
-        System.out.println("Size : "+ dog.name+"Color : "+dog.color+"Name : "+dog.name);
+        System.out.println("Size : "+ dog.name+". Color : "+dog.color+". Name : "+dog.name);
+        a.add(1.5);
         System.out.println(a.get(0));
 
         List bienTCArraylist = new ArrayList();
@@ -28,6 +29,16 @@ public class MinhHoaArrayList {
         bienTCArraylist.add(new SinhVien("2005"," Phong Đũy", 19, "Long an ")) ;
         SinhVien sinhVien =(SinhVien)bienTCArraylist.get(0); // lấy 1 phần tử list
         System.out.println(bienTCArraylist);
+
+        ArrayList<SinhVien> SV = new ArrayList<>();
+        SV.add(new SinhVien());
+
+        ArrayList<String> b = new ArrayList<>();
+        b.add("Phong");
+        b.add("Tin");
+        System.out.println(b);
+        String s = b.get(1);
+        System.out.println(s);
     }
     
 }

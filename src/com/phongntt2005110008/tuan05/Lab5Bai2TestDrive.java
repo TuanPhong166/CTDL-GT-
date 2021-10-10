@@ -19,9 +19,11 @@ public class Lab5Bai2TestDrive {
             case 4 : bai2.xuatNgauNhien(); break ;
             case 5 : bai2.timVaXoa(); break ;
             case 6 : break ;
+        default :
+         System.out.println("Bạn chọn sai rồi. Vui lòng chọn lại!!!");
         }
 
-        }while (true);
+        }while (chose >= 1 && chose <= 5);
 
     }
     

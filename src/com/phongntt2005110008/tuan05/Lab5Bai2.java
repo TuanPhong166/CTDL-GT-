@@ -38,10 +38,14 @@ public void xuat(){
     }
 }
 public void xuatNgauNhien(){
+    System.out.println("-----------------");
+    System.out.println(">>>>>Danh Sách Xuất Ngẫu Nghiên<<<<<");
     Collections.shuffle(list);
     xuat();
 }
 public void sapXep(){
+    System.out.println("-----------------");
+    System.out.println(">>>>>Danh Sách Săp Xếp<<<<<");
     Collections.sort(list);
     Collections.reverse(list);
     xuat();
