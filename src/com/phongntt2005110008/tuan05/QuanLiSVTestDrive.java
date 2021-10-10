@@ -6,7 +6,7 @@ public class QuanLiSVTestDrive {
 
     public static void main(String[] args) {
         
-        ArrayList<QuanLiSV> SV = new ArrayList<QuanLiSV>();
+        
 
     
 

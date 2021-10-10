@@ -4,10 +4,10 @@ package com.phongntt2005110008.tuan05;
 public class SanPham {
     
    // tạo đối tượng tham chiếu sản pham
-    public String tenSp ;
-    public double donGia ;
-    public double giamGia ;
-    public double thueNhapKhau ;
+     String tenSp ;
+    double donGia ;
+     double giamGia ;
+     double thueNhapKhau ;
    // hàm tạo
     public SanPham(){}
    
