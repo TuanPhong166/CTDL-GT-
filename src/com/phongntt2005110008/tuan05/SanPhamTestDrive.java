@@ -1,86 +1,118 @@
 package com.phongntt2005110008.tuan05;
 
-import java.util.Scanner;
-import java.util.Comparator;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Scanner;
+
 
 public class SanPhamTestDrive {
 
-    public static Scanner input = new Scanner(System.in);
-    static ArrayList<SanPham> listSp = new ArrayList<>() ;
+    static ArrayList<SanPham> listSp = new ArrayList<>();
+    
+    static void nhap(){
+        System.out.println("Nhập danh sách sản phẩm: ");
+               Scanner sc = new Scanner(System.in);
+               int i = 1;
+           do{
+               System.out.printf("Tên sản phẩm thứ %d: ", i);
+               String sp=sc.nextLine();
+               
+               if( sp==null || sp.equals("")){
+                   break;
+               }
+               System.out.printf("Giá sản phẩm: ");
+               double gia=sc.nextDouble();
+               System.out.print("Giảm giá : ");
+               double giam = sc.nextDouble();
+               
 
-    public static void main(String[] args) {
+               listSp.add(new SanPham(sp, gia, giam));
+               sc.nextLine();
+               i++;
+           } while (true);
+    }
+    static void xuat(){
+        System.out.println();
+        System.out.println("Danh sách sản phẩm: ");
+        for (SanPham sanPham : listSp) {
+            sanPham.inThongTin();
+            System.out.println(" ");
+    }
+}
+    static void timKiem(){
+        Scanner sc=new Scanner(System.in);
+        System.out.print("Nhập tên của sản phẩm cần tìm và xóa: ");
+        String ten=sc.nextLine();
+        SanPham found = null;
         
-
+        for(SanPham sanPham : listSp) {
+            if (sanPham.equals(ten)){
+                found = sanPham;
+                break;
+            }
+        }
+        if (found != null){
+            listSp.remove(found);
+            System.out.println("Sản phẩm đã được xóa khỏi danh sách ^_^");
+        } else{
+            System.out.println("Sản phẩm không có trong danh sách ^.^");
+        }
+    }
+    static void menu(){
+        System.out.println("MENU CHƯƠNG TRÌNH"); 
+        System.out.println("1. Nhập danh sách sản phẩm"); 
+        System.out.println("2. Xuất danh sách sản phẩm"); 
+        System.out.println("3. Sắp xếp danh sách sản phẩm"); 
+        System.out.println("4. Tìm và xóa sản phẩm"); 
+        System.out.println("5. Tính giá trung bình của các sản phẩm"); 
+        System.out.println("6. Thoát chương trình"); 
+    }
+    static void giaTrungBinh(){
+        double tb=0, tong=0;
+         
+        for(SanPham sanPham:listSp){
+            tong += sanPham.donGia;
+        }
+        tb = tong/listSp.size();
+        System.out.println("Giá trung bình của các sản phẩm: " +tb);
+    }
+    static void sapXep(){
+        Collections.sort(listSp, (a,b) -> (int) (a.donGia-b.donGia ));
+         System.out.println("Danh sách sản phẩm sau khi đã sắp xếp: ");
+         xuat();
+    }
+    public static void main(String[] args) {
         int chose ;
+        Scanner sc=new Scanner(System.in);
         do{
-            menu() ;
-            System.out.println("Bạn chọn chức năng nào ? ");
-            System.out.print("Mới bạn nhấp số : ");
-            chose = input.nextInt();
+        menu();
+
+        System.out.print("Mời bạn chọn chương trình: "); 
+        chose = sc.nextInt();
+
         switch (chose) {
             case 1:
-                nhapSp();
+                nhap();
                 break;
-            case 2 :
-                xuatSP();
+            case 2:
+                xuat();
                 break ;
-            case 3 :
+            case 3:
                 sapXep();
-                break ;
-            case 4 :
-
-            case 5 :
-
-            break ;
-                
-            
-            default:
-                System.out.println("Bạn chọn sai rồi. Vui lòng chọn lại!!!");
                 break;
-        } 
-    } while ( chose >= 1 && chose !=5);
 
-    }
+            case 4: 
+                timKiem();
+                break ;
+            case 5: 
+                giaTrungBinh();
+                break;
+            default:
+                System.out.println("Nhập sai vui lòng nhập lại");
+                break;
+        }
 
-    
-    
-    public static void menu (){
-        System.out.println("1>> Nhập dánh sách sản phẩm từ bàn phím.");
-        System.out.println("2>> Sắp xếp giảm dần theo giá và xuất ra màn hình.");
-        System.out.println("3>> Tìm và xóa sản phẩm theo tên nhập từ bàn phím.");
-        System.out.println("4>> Xuất giá trung bình của các sản phẩm.");
-        System.out.println("5>>  Thoát.");
-    }
-    public static void nhapSp(){
-        SanPham sp = new SanPham();
-        System.out.println("Nhập số lượng danh sách sản phẩm : ");
-        int n = input.nextInt();
-        for (int i=1 ; i <= n ; i++ ){
-        System.out.print("Nhập tên sản phẩm: ");
-        sp.tenSp = input.next();
-        System.out.print("Nhập đơn giá sản phẩm: ");
-        sp.donGia = input.nextDouble();
-        System.out.print("Nhập mã giảm giá: ");
-        sp.giamGia = input.nextDouble();
-        listSp.add(sp);
-        }
-    }
-    public static void xuatSP(){
-        for (SanPham sanPham : listSp) {
-            System.out.printf("Tên sản phẩm %s \n Giá sản phẩm %s \n Mã giảm giá %s \n Thuế nhập khẩu %s \n",sanPham.tenSp,sanPham.donGia,sanPham.giamGia,sanPham.thueNhapKhau);
-            
-        }
-    }
-    public static void sapXep(){
-        Comparator<SanPham> comp = new Comparator<SanPham>() {
-            @Override
-            public int compare(SanPham o1, SanPham o2) { 
-                return Double.compare(o1.donGia, o2.donGia);
-            }
-            };
-        Collections.sort(listSp, comp);
-            
+
+        } while(true);
     }
 }

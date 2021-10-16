@@ -1,44 +1,21 @@
 package com.phongntt2005110008.tuan05;
 
-import java.util.ArrayList;
-import java.util.Scanner;
-
 public class QuanLiSV {
 
     // bài làm chưa xong 
+    public static String hoTen ;
+    public static Double diem ;
 
-    ArrayList list = new ArrayList<>();
+    public QuanLiSV(){}
 
-    private String hoTen ;
-    private Double diemTB ;
-
-    public void menu(){
-        System.out.println("1>> Nhập danh sách sinh viên.");
-        System.out.println("2>> Xuất danh sách sinh viên đã nhập.");
-        System.out.println("3>> Xuất danh sách sinh viên theo khoảng điểm.");
-        System.out.println("4>> Tìm sinh viên theo họ tên.");
-        System.out.println("5>> Tìm và sửa sinh viên theo họ tên.");
-        System.out.println("6>> Tìm và xóa sinh viên theo họ tên");
-        System.out.println("7>> Thoát.");
-
+    public QuanLiSV(String t , double d ){
+        hoTen = t ;
+        diem = d ;
     }
-    public void nhap(){
-        Scanner input = new Scanner(System.in);
-        System.out.print("Nhập vào họ và tên : ");
-        hoTen = input.nextLine();
-        list.add(hoTen);
-        System.out.println("Nhập vào điểm trung bình : ");
-        diemTB = input.nextDouble();
-        input.nextLine();
-        list.add(diemTB);
+
+    void inThongTin(){
+        System.out.println("Họ và tên sinh viên : "+hoTen);
+        System.out.println("Điểm số  : "+diem);
     }
-    public void xuat(){
-        System.out.println(">>>>>>DANH SÁCH SINH VIÊN<<<<<<");
-        System.out.println("");
-       for (Object object : list) {
-        System.out.println("Họ và tên : "+hoTen);
-        System.out.println("Điểm trung bình : "+diemTB);
-           
-       }
+       
     }
-}
