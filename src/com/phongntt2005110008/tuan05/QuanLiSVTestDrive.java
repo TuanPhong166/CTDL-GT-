@@ -6,69 +6,120 @@ import java.util.Scanner;
 public class QuanLiSVTestDrive {
 
     static ArrayList<QuanLiSV> listSV = new ArrayList<>();
-    
+    static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
-        int chose ;
+        int chon;
         do{
-        menu();
-        System.out.println("Bạn chọn nào ?");  
-        chose = input.nextInt();
+            System.out.println("==========MENU==========");
+            System.out.println(">>1. Nhập thông tin sinh viên.");
+            System.out.println(">>2. Xuất danh sách đã nhập.");
+            System.out.println(">>3. Xuất danh sách theo khoảng điểm.");
+            System.out.println(">>4. Tìm sinh viên.");
+            System.out.println(">>5. Tìm và sửa thông tin.");
+            System.out.println(">>6. Tìm và xóa thông tin.");
+            System.out.println(">>7. Kết thúc.");
+            System.out.print("Nhập vào sự lựa chọn: ");
+            chon = input.nextInt();
+            switch(chon){
+                case 1: 
+                        nhap();
+                        break;
+                case 2: 
+                        xuatDS();
+                        break;
+                case 3:
+                        xuatTheoDiem();
+                        break;
+                case 4: 
+                        tim();
+                        break;
+                case 5: 
+                        timVaSua();
+                        break;
+                case 6: 
+                        timVaXoa();
+                        break;
+                case 7:
+                        System.out.println("KẾT THÚC!");
+                        break;
+                default: 
+                        System.out.println("- Lựa chọn không hợp lệ!");
 
-        switch (chose) {
-            case 1:
-               nhap();
-               break;
-            case 2 :
-               xuat();
-               break ;
-        
-            default:
-                break;
-        }
-    }while (chose >= 1 && chose !=7 );
-        
-            
+            }
+            System.out.print("- Quay lại MENU(1:yes/0:no): ");
+            chon = input.nextInt();
+        }while(chon == 1);
 
     }
-
-        static void menu(){
-            System.out.println("1>> Nhập danh sách sinh viên.");
-            System.out.println("2>> Xuất danh sách sinh viên đã nhập.");
-            System.out.println("3>> Xuất danh sách sinh viên theo khoảng điểm.");
-            System.out.println("4>> Tìm sinh viên theo họ tên.");
-            System.out.println("5>> Tìm và sửa sinh viên theo họ tên.");
-            System.out.println("6>> Tìm và xóa sinh viên theo họ tên");
-            System.out.println("7>> Thoát.");
-    
+    static void nhap(){
+        int chon;
+        do{
+                System.out.println("- Nhập thông tin của sinh viên: ");
+                QuanLiSV sv = new QuanLiSV();
+                sv.nhapThongTin();
+                listSV.add(sv);
+                System.out.print("- Nhập thêm(1:yes/0:no): ");
+                chon = input.nextInt();
+                input.nextLine();
+        }while(chon == 1);
+    }
+    static void xuatDS(){
+        for(QuanLiSV x : listSV){
+            x.inThongTin();
         }
-        public static void nhap(){
-            Scanner input = new Scanner(System.in);
-            System.out.println("Nhập vào số sinh viên : ");
-            Double number = input.nextDouble();
-            for(int i = 0 ; i <= number ; i++){
-            System.out.print("Nhập vào họ và tên : ");
-            String hoTen = input.nextLine();
-            System.out.println("Nhập vào điểm trung bình : ");
-            double diem = input.nextDouble();
+    }
+    static void xuatTheoDiem(){
+        System.out.print("- Nhập điểm min: ");
+        double min = input.nextDouble();
+        System.out.print("- Nhập điểm max: ");
+        double max = input.nextDouble();
+        System.out.println("-Danh sách sinh viên trong khoảng " +min+ "đến" +max+ "là: ");
+        for(QuanLiSV x : listSV){
+                if(x.diem >= min && x.diem <= max){
+                        x.inThongTin();
+                }
+        }
+    }
+    static void tim(){
+        System.out.print("- Nhập họ tên sinh viên cần tìm: ");
+        input.nextLine();
+        String hoTen = input.nextLine();
+        for(QuanLiSV x : listSV){
+                if(x.hoTen.contains(hoTen)){
+                        System.out.println("-----Thông tin sinh viên cần tìm-----");
+                        x.inThongTin();
+                }
+        }  
+    }
+    static void timVaSua(){
+        System.out.print("- Nhập tên sinh viên cần sửa điểm: ");
+        input.nextLine();
+        String hvt = input.nextLine();
+        for(QuanLiSV x : listSV){
+                if(x.hoTen.contains(hvt)){
+                        System.out.print("  + Nhập điểm mới: ");
+                        x.diem = input.nextDouble();
+                        System.out.println("-----Sau khi sửa-----");
+                        x.inThongTin();
+                }
+        }
+    }
+    static void timVaXoa(){
+            System.out.print("- Nhập tên sinh viên cần xóa: ");
             input.nextLine();
-            QuanLiSV newSv = new QuanLiSV(hoTen,diem);
-            listSV.add(newSv);
+            String ht = input.nextLine();
+            for(QuanLiSV x : listSV){
+                    if(x.hoTen.equals(ht)){
+                        listSV.remove(x);
+                        System.out.println("- Xóa thành công!");
+                        break;
+                    }
             }
-            QuanLiSV newSv = new QuanLiSV();
-            listSV.add(newSv);
-        }
-        public static void xuat(){
-            System.out.println(">>>>>>DANH SÁCH SINH VIÊN<<<<<<");
-            System.out.println("");
-            for (QuanLiSV quanLiSV : listSV) {
-                quanLiSV.inThongTin();
-                System.out.println("");
-            }
-        
-               
-           }
+    }
+    
+
+    
 }
     
 
