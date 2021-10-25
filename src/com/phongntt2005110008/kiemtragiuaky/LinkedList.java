@@ -29,9 +29,9 @@ public class LinkedList {
     }
   
     // thêm đầu
-    void addFirst (int data){
+    void addFirst (){
         // Tạo 1 Node mới 
-        Node newNode = new Node(data);
+        Node newNode = new Node();
         // Kiểm tra xem danh sách 
         if(head == null ){// thêm 1 nút vào dánh sách rỗng
             // Nếu danh sách rỗng thì cả head và tail đều trỏ tới newNode
@@ -57,7 +57,7 @@ public class LinkedList {
     System.out.println("Các nút trong danh sách : ");
     while(current != null){
         // In ra thông tin mỗi nút.
-       System.out.println(current.data);
+       System.out.println(current.maTao);
        current = current.next ;
     }
 }

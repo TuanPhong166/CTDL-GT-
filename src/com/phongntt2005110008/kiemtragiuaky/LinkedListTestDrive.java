@@ -4,6 +4,7 @@ public class LinkedListTestDrive {
 
     public static void main(String[] args) {
         LinkedList list = new LinkedList();
+        list.addFirst();
     
     }
 
