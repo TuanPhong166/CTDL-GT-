@@ -14,10 +14,10 @@ public class Bai1 {
     public void them(){
         Scanner bienNhap = new Scanner(System.in);
 
-        System.out.println("Nhập khối lượng sản phẩm Táo : ");
+        System.out.print("Nhập khối lượng sản phẩm Táo : ");
         double khoiLuong = bienNhap.nextDouble();
 
-        System.out.println("Nhập vào màu sản phẩm táo :");
+        System.out.print("Nhập vào màu sản phẩm táo :");
         bienNhap.nextLine();
         String color =bienNhap.nextLine();
 
