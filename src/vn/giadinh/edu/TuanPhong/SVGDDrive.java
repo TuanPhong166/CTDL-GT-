@@ -55,44 +55,44 @@ public class SVGDDrive {
         input.nextLine();
         String hoTen= input.nextLine();
         for (SVGD x : list) {
-            if(x.name.contains(hoTen)){
+            if(x.name.equalsIgnoreCase(hoTen)){
             System.out.println("Thông tin sinh viên cần tìm : ");
             x.inThongTin();
-            break ;
             }else
             System.out.println("Không tìm thấy thông tin sinh viên.");
+            break ;
         }
     }
 
     public void findAndFix(){
-        System.out.print("Nhập họ tên sinh viên cần tìm và thay đổi : ");
+        System.out.print("Enter the name of the student you want to find and fix from the list  : ");
         input.nextLine();
-        String hoTen = input.nextLine();
+        String fullName = input.nextLine();
 
         for (SVGD x : list) {
-            if(x.name.contains(hoTen)){
-                System.out.print("Nhập họ tên mới sinh viên : ");
+            if(x.name.equalsIgnoreCase(fullName)){
+                System.out.print("Enter the new name of the student : ");
                 x.name = input.nextLine();
-                System.out.println("Sau khi sửa");
+                System.out.println("After repair.");
                 x.inThongTin();
-                break ;
             }else
-            System.out.println("Không tìm thấy thông tin sinh viên.");
+            System.out.println("No data found.");
+            break ;
         }
     }
 
     public void findAndDelete(){
-        System.out.print("Nhập tên sinh viên cần tìm và xóa ra khỏi danh sách : ");
+        System.out.print("Enter the name of the student you want to find and remove from the list : ");
         input.nextLine();
-        String hoTen = input.nextLine();
+        String fullName = input.nextLine();
 
         for (SVGD x : list) {
-            if(x.name.equals(hoTen)){
+            if(x.name.contains(fullName)){
                 list.remove(x);
-                System.out.println("Xóa tên sinh viên thành công.");
+                System.out.println("Delete student name successfully.");
                 break ;
             }else
-        System.out.println("Không tìm thấy sinh viên.");           
+        System.out.println("No data found.");           
         }
     }
 }
