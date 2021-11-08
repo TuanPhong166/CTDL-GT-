@@ -13,7 +13,7 @@ public class MainBook {
         do{
     		System.out.println(">>>>>MENU<<<<<");
             System.out.println("1>>.Thêm sản phẩm sách ");
-            System.out.println("2>>.Tìm sản phẩm sách theo màu ");
+            System.out.println("2>>.Tìm sản phẩm sách theo đơn giá ");
             System.out.println("3>>.In danh sách sản phẩm sách");
             System.out.println("4>>. Thoát ");
             System.out.println("");
@@ -31,11 +31,11 @@ public class MainBook {
     }
     
     public static void finByColor(){
-        System.out.print("Nhập màu sách muốn tìm: ");
+        System.out.print("Nhập đơn giá muốn tìm: ");
 	    input.nextLine();
-		String color = input.nextLine();
-		System.out.print("Các sản phẩm sách theo màu muốn tìm :");
-		listBook.search(color);
+		Double donGia = input.nextDouble();
+		System.out.print("Các sản phẩm sách theo đơn giá muốn tìm :");
+		listBook.search(donGia);
 		System.out.println();		
     }
 

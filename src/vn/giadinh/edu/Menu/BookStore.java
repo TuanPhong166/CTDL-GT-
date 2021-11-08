@@ -17,12 +17,13 @@ public class BookStore {
     public void add(){
         int yes ;
         do{
-        System.out.print("Nhập vào đơn giá sản phẩm táo (Kg) : ");
+        System.out.print("Nhập vào đơn giá sản phẩm sách : ");
         Double donGia = input.nextDouble();
-        System.out.print("Nhập vào số lượng sản phẩm táo : ");
+        System.out.print("Nhập vào số lượng sản phẩm sách : ");
         input.nextLine();
         int soLuong  = input.nextInt();
-        System.out.println("Nhập vào màu sản phẩm sách : ");
+        System.out.print("Nhập vào màu sản phẩm sách : ");
+        input.nextLine();
         String color = input.nextLine();
 
         list.add(new Book(list.size() , donGia, soLuong , color));
@@ -33,16 +34,16 @@ public class BookStore {
        }while(yes == 1);
     }
 
-    public void search(String color){
+    public void search(Double donGia){
         int  count = 0 ;
     for (Book x : list) {
-        if(x.color.equals(color)){
+        if(x.color.equals(donGia)){
             count ++ ;
             x.inThongTin();
         }
     }
     if(count == 0){
-        System.out.println("Danh sách tìm không ra màu "+color);
+        System.out.println("Danh sách tìm không ra  "+donGia);
     }
     System.out.println();
     }
