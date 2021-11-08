@@ -14,7 +14,7 @@ public class MainApple {
         System.out.println(">>>>>>>Menu<<<<<<<");
         System.out.println("1>>. Thêm táo.");
         System.out.println("2>>. Sắp xếp cân nặng giảm dần.");
-        System.out.println("3>>. Sắp xếp câng nặng tăng dần.");
+        System.out.println("3>>. Sắp xếp câng nặng tăng  dần.");
         System.out.println("4>>. Tìm kiếm táo theo mã sản phẩm.");
         System.out.println("5>>. Tìm kiếm táo theo màu.");
         System.out.println("6>>. Tìm kiếm táo theo cân nặng");
