@@ -32,7 +32,7 @@ public class DSLK {
      }
     }
 
-    public void outPut(){
+    public void outPut(Book book){
         Node current = head ;
         
         if(head == null){
@@ -41,7 +41,7 @@ public class DSLK {
         }
         System.out.println("Các nút trong danh sách : ");
         while(current != null){
-           System.out.println(current.data);
+           System.out.println(current.book);
            current = current.next ;
         }
     }
