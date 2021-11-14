@@ -9,8 +9,15 @@ public class bai1 {
           Viết chương trình tìm ước số chung lớn nhất, bội số chung nhỏ nhất của hai số tự nhiên a và b.
 
     */
+    
+    static void clearScreen() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
     static Scanner input = new Scanner(System.in);
     public static void main(String[] args) {
+
+        clearScreen();
         
         System.out.print("Nhập vào số tự nhiên a : ");
         int a = input.nextInt();

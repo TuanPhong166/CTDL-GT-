@@ -1,46 +1,40 @@
 package vn.giadinh.edu.Menu;
 
-
+import java.util.Scanner;
 
 public class Book {
 
-    int id  ;
-    Double donGia ;
-    int soLuong ;
-    String color ;
+    int id;
+    double donGia;
+    int soLuong;
 
-    public Book (){}
-
-    public Book(int _id){
-        id = _id ;
+    public Book() {
     }
-
-    public Book(int _id , double _donGia){
-        id = _id ;
-        donGia = _donGia ;
-    }
-
-    public Book(int _id , double _donGia , int _soLuong){
-        id = _id ;
-        donGia = _donGia ;
-        soLuong = _soLuong ;
-    }
-
     
-    public Book(int _id , double _donGia , int _soLuong, String _color ){
-        id = _id ;
-        donGia = _donGia ;
-        soLuong = _soLuong ;
-        color = _color ;
+    public Book(int i, double d, int s){
+        i = id;
+        d = donGia;
+        s = soLuong;
     }
 
+    Scanner sc = new Scanner(System.in);
+
+    void nhapThongTin(){
+        System.out.print("Nhập mã: ");
+        id = sc.nextInt();
+        System.out.print("Nhập đơn giá: ");
+        donGia = sc.nextDouble();
+        System.out.print("Nhập số lượng: ");
+        soLuong = sc.nextInt();
+
+    }
 
     void inThongTin(){
-        System.out.println("Mã sản phẩm sách : "+id);
-        System.out.println("Đơn giá sản phẩm sách : "+donGia);
-        System.out.println("Số lượng sản phẩm sách : "+soLuong);
-        System.out.println("Màu sản phẩm sách : "+color );
+        System.out.println("___________________________");
+        System.out.println("Mã: "+id);
+        System.out.println("Đơn giá: "+donGia);
+        System.out.println("Số Lượng: "+soLuong);
+        System.out.println("___________________________");
     }
 
-    
 }

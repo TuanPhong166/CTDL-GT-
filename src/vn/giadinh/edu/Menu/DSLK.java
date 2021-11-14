@@ -3,64 +3,98 @@ package vn.giadinh.edu.Menu;
 public class DSLK {
 
     
-    Node  head = null; // không bằng null nó cũng tự động rỗng
-    Node tail = null ; 
+    Node head = null;
+    Node tail = null;
+    Book book;
 
-    Node  node = new Node();
-
-    public DSLK(){}
-
-    public void addTail(Book book){
-      Node newNode = new Node(book);
-        if(head == null ){
-            head = newNode ;
-            tail = newNode ;
-        }else { 
-              tail.next = newNode ;
-              tail = newNode ;
-        }
-    }
-
-    public void addHead(Book book) {
-     Node newNode = new Node(book);
-     if(head == null ){
-         head = newNode ;
-         tail = newNode ;
-     }else {
-           newNode.next = head  ;
-           head = newNode ;
-     }
-    }
-
-    public void outPut(Book book){
-        Node current = head ;
-        
+    public void addFirst(){ // Hàm thêm đầu dslk
+        Book book = new Book();
+        Node newBook = new Node(book);
+        newBook.book.nhapThongTin();
         if(head == null){
-            System.out.println("Danh sách rỗng ???");
-            return  ;
+            head = newBook;
+            tail = newBook;
         }
-        System.out.println("Các nút trong danh sách : ");
-        while(current != null){
-           System.out.println(current.book);
-           current = current.next ;
+        else{
+            newBook.next = head;
+            head = newBook;
         }
     }
 
-    
-    public void deletedTail(){
-        Node temp = head ;
-        while(temp != null){
-            if(temp.next ==tail){
-                temp.next=null ;
-                tail = temp ;
-                break ;
+    public void addLast(){ // hàm thêm cuối danh sách liên kết
+        Book book = new Book();
+        Node newBook = new Node(book);
+        newBook.book.nhapThongTin();
+        if(head == null){
+            head = newBook;
+            tail = newBook;
+        } 
+        else{
+            tail.next = newBook;
+            tail = newBook;
+        }
+    }
+
+    public void display(){ // Hàm in danh sách
+        Node current = head;
+        if(head == null){
+            System.out.println("DANH SÁCH RỖNG!");
+        }
+        else{
+            while(current != null){
+                current.book.inThongTin();
+                current = current.next;
             }
-            temp = temp.next ;
         }
     }
 
+    Node find(int key) { // Hàm tìm kiếm một phần tử có trong linkedlist không 
+        Node current = head;
+        if(head.book.id == key){
+            return head;
+        }
+        while (current != null) {
+            if (key == current.next.book.id)
+                return current;
+            current = current.next;
+        }
+        return null;
+    }
 
+    public void addPreivous(){
+        Book book = new Book();
+        Node NewBook = new Node(book);
+        if(find(NewBook.book.id) == null )
+            return;
+        Node temp = find(NewBook.book.id);    
+        NewBook.book.nhapThongTin();
+        NewBook.next = temp.next;
+        temp.next = NewBook;
+    }
 
+    public void removeFirst() { //Hàm xoá đầu
+        if(head == null){
+            System.out.println("Danh sách rỗng!");
+            return;
+        }
+        head = head.next;
+    }
+
+    public void removeLast(){ //Hàm xoá cuối
+        Node current = head;
+        if(head.next == null){
+            removeFirst();
+            return;
+        }
+        while(current != null){
+            if(current.next == tail){
+                tail = current;
+                current.next = null;
+                return;
+            }
+            current = current.next;
+        }
+    }
 
 
     
